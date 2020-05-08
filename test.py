@@ -53,12 +53,22 @@ if __name__ == '__main__':
                     csoup = BeautifulSoup(commitHTML, 'html.parser')
 
                     if parentDomain == 'git.savannah.gnu.org':
-                        writeParentAndCommitCode(gitsavannahgnuorgCode(psoup),gitsavannahgnuorgCode(csoup),parentUrl,commitUrl,i)
+                        # writeParentAndCommitCode(gitsavannahgnuorgCode(psoup),gitsavannahgnuorgCode(csoup),parentUrl,commitUrl,i)
                         continue
                     elif parentDomain == 'git.samba.org':
-                        writeParentAndCommitCode(gitsambaorg(psoup),gitsambaorg(csoup),parentUrl,commitUrl,i)
+                        # writeParentAndCommitCode(gitsambaorg(psoup),gitsambaorg(csoup),parentUrl,commitUrl,i)
+                        continue
+                    elif parentDomain == 'git.php.net':
+                        # writeParentAndCommitCode(gitphpnet(psoup),gitphpnet(csoup),parentUrl,commitUrl,i)
+                        continue
+                    elif parentDomain == 'cgit.kde.org':
+                        # writeParentAndCommitCode(cgitkdeorg(parentUrl),cgitkdeorg(commitUrl),parentUrl,commitUrl,i)
+                        continue
+                    elif parentDomain == 'git.ganeti.org':
+                        # writeParentAndCommitCode(gitganetiorg(psoup),gitganetiorg(csoup),parentUrl,commitUrl,i)
                         continue
                     else:
-                        # print(i)
+                        print(i + 2)
                         break
+
     print(testedDomains)
