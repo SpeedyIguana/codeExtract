@@ -41,3 +41,8 @@ def gitganetiorg(sp):
                 if txt is not None:
                     rtn += txt + "\n"
     return(rtn)
+
+def gitbusyboxnet(url):
+    urlnew = url.replace('tree', 'plain')
+    req = requests.get(urlnew)
+    return(req.text)
