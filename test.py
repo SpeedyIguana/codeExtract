@@ -23,11 +23,11 @@ def writeParentAndCommitCode(parentcode, commitcode, parenturl, commiturl, row):
     c.write(commitcode)
     c.close()
 
-    p = open(dirx + "parenturl.txt","w+")
+    p = open(dirx + "parentUrl.txt","w+")
     p.write(parenturl)
     p.close()
 
-    c = open(dirx + "commiturl.txt","w+")
+    c = open(dirx + "commitUrl.txt","w+")
     c.write(commiturl)
     c.close()
 
@@ -54,6 +54,10 @@ if __name__ == '__main__':
 
                     if parentDomain == 'git.savannah.gnu.org':
                         writeParentAndCommitCode(gitsavannahgnuorgCode(psoup),gitsavannahgnuorgCode(csoup),parentUrl,commitUrl,i)
+                        continue
+                    elif parentDomain == 'git.samba.org':
+                        writeParentAndCommitCode(gitsambaorg(psoup),gitsambaorg(csoup),parentUrl,commitUrl,i)
+                        continue
                     else:
                         # print(i)
                         break

@@ -1,1 +1,0 @@
-https://git.savannah.gnu.org/cgit/inetutils.git/tree/libtelnet/encrypt.c?id=665f1e73cdd9b38e2d2e11b8db9958a315935592
