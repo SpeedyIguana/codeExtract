@@ -1,4 +1,60 @@
+import os
 import pandas as pd
+from tld import get_tld
+import requests
+from bs4 import BeautifulSoup
+from extractCodeFromSoup import *
+
 data = pd.read_csv("tt - tt.csv")
-print(data.columns[22])
-print(data.iloc[0,22])
+
+testedDomains = []
+
+def writeParentAndCommitCode(parentcode, commitcode, parenturl, commiturl, row):
+    dirx ="code/"+ str(row) + "/"
+    fname = dirx +"smth.txt"
+    if not os.path.exists(os.path.dirname(fname)):
+        os.makedirs(os.path.dirname(fname))
+
+    p = open(dirx + "parentCode.txt","w+")
+    p.write(parentcode)
+    p.close()
+
+    c = open(dirx +"commitCode.txt","w+")
+    c.write(commitcode)
+    c.close()
+
+    p = open(dirx + "parenturl.txt","w+")
+    p.write(parenturl)
+    p.close()
+
+    c = open(dirx + "commiturl.txt","w+")
+    c.write(commiturl)
+    c.close()
+
+if __name__ == '__main__':
+    for i in range(data.shape[0]):
+    # for i in range(1):
+        parentUrl = data.iloc[i, 22]
+        commitUrl = data.iloc[i, 23]
+        if not pd.isnull(parentUrl) and not pd.isnull(commitUrl):
+            pres = get_tld(parentUrl, as_object=True)
+            cres = get_tld(commitUrl, as_object=True)
+            parentDomain = pres.parsed_url.netloc
+            commitDomain = cres.parsed_url.netloc
+            if parentDomain not in testedDomains and commitDomain not in testedDomains:
+                testedDomains.append(parentDomain)
+                # continue testing
+                parentReq = requests.get(parentUrl)
+                commitReq = requests.get(commitUrl)
+                if parentReq.ok and commitReq.ok:
+                    parentHTML = parentReq.text
+                    commitHTML = commitReq.text
+                    psoup = BeautifulSoup(parentHTML, 'html.parser')
+                    csoup = BeautifulSoup(commitHTML, 'html.parser')
+
+                    if parentDomain == 'git.savannah.gnu.org':
+                        writeParentAndCommitCode(gitsavannahgnuorgCode(psoup),gitsavannahgnuorgCode(csoup),parentUrl,commitUrl,i)
+                    else:
+                        # print(i)
+                        break
+    print(testedDomains)
