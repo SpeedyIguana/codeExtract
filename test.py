@@ -32,8 +32,8 @@ def writeParentAndCommitCode(parentcode, commitcode, parenturl, commiturl, row):
     c.close()
 
 if __name__ == '__main__':
-    for i in range(data.shape[0]):
-    # for i in range(1):
+    # for i in range(data.shape[0]):
+    for i in range(12, 24):
         parentUrl = data.iloc[i, 22]
         commitUrl = data.iloc[i, 23]
         if not pd.isnull(parentUrl) and not pd.isnull(commitUrl):
@@ -72,6 +72,9 @@ if __name__ == '__main__':
                         continue
                     elif parentDomain == 'git.tt-rss.org':
                         # writeParentAndCommitCode(gitttrssorg(parentUrl),gitttrssorg(commitUrl),parentUrl,commitUrl,i)
+                        continue
+                    elif parentDomain == 'git.openssl.org':
+                        writeParentAndCommitCode(gitopensslorg(psoup),gitopensslorg(csoup),parentUrl,commitUrl,i)
                         continue
                     else:
                         print(i + 2, parentDomain)
