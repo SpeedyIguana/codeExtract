@@ -115,6 +115,9 @@ if __name__ == '__main__':
                 elif parentDomain == 'git.infradead.org':
                     # writeParentAndCommitCode(gitinfradeadorg(parentUrl),gitinfradeadorg(commitUrl),parentUrl,commitUrl,i)
                     continue
+                elif parentDomain == 'anongit.mindrot.org':
+                    # writeParentAndCommitCode(anongitmindrotorg(parentUrl),anongitmindrotorg(commitUrl),parentUrl,commitUrl,i)
+                    continue
                 else:
                     print(i + 2, parentDomain)
                     break
