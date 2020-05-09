@@ -72,9 +72,9 @@ if __name__ == '__main__':
             if requests.get(parentUrl).ok and requests.get(commitUrl).ok:
                 fn = functionCalls.get(parentDomain, None)
                 if fn is None:
-                    print("*" * 9)
+                    print("*" * 20)
                     print("Missing Dict Entry for i = ", i, ", domain = ", parentDomain)
-                    print("*" * 9)
+                    print("*" * 20)
                     continue
                 print("-------------------------------------")
                 print(i, parentUrl, commitUrl)
