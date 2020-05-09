@@ -119,3 +119,8 @@ def gitpengutronixde(url):
     urlnew = url.replace('tree', 'plain')
     req = requests.get(urlnew)
     return(req.text)
+
+def gitnetfilterorg(url):
+    urlnew = url.replace('tree', 'plain')
+    req = requests.get(urlnew)
+    return(req.text)
