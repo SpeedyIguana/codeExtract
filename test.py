@@ -7,7 +7,7 @@ from extractCodeFromSoup import *
 
 data = pd.read_csv("tt - tt.csv")
 
-testedDomains = []
+# testedDomains = []
 
 def writeParentAndCommitCode(parentcode, commitcode, parenturl, commiturl, row):
     dirx ="code/"+ str(row) + "/"
@@ -33,7 +33,7 @@ def writeParentAndCommitCode(parentcode, commitcode, parenturl, commiturl, row):
 
 if __name__ == '__main__':
     # for i in range(data.shape[0]):
-    for i in range(12, 24):
+    for i in range(12, data.shape[0]):
         parentUrl = data.iloc[i, 22]
         commitUrl = data.iloc[i, 23]
         if not pd.isnull(parentUrl) and not pd.isnull(commitUrl):
@@ -41,43 +41,46 @@ if __name__ == '__main__':
             cres = get_tld(commitUrl, as_object=True)
             parentDomain = pres.parsed_url.netloc
             commitDomain = cres.parsed_url.netloc
-            if parentDomain not in testedDomains and commitDomain not in testedDomains:
-                testedDomains.append(parentDomain)
-                # continue testing
-                parentReq = requests.get(parentUrl)
-                commitReq = requests.get(commitUrl)
-                if parentReq.ok and commitReq.ok:
-                    parentHTML = parentReq.text
-                    commitHTML = commitReq.text
-                    psoup = BeautifulSoup(parentHTML, 'html.parser')
-                    csoup = BeautifulSoup(commitHTML, 'html.parser')
+            # if parentDomain not in testedDomains and commitDomain not in testedDomains:
+            # testedDomains.append(parentDomain)
+            # continue testing
+            parentReq = requests.get(parentUrl)
+            commitReq = requests.get(commitUrl)
+            if parentReq.ok and commitReq.ok:
+                parentHTML = parentReq.text
+                commitHTML = commitReq.text
+                psoup = BeautifulSoup(parentHTML, 'html.parser')
+                csoup = BeautifulSoup(commitHTML, 'html.parser')
 
-                    if parentDomain == 'git.savannah.gnu.org':
-                        # writeParentAndCommitCode(gitsavannahgnuorgCode(psoup),gitsavannahgnuorgCode(csoup),parentUrl,commitUrl,i)
-                        continue
-                    elif parentDomain == 'git.samba.org':
-                        # writeParentAndCommitCode(gitsambaorg(psoup),gitsambaorg(csoup),parentUrl,commitUrl,i)
-                        continue
-                    elif parentDomain == 'git.php.net':
-                        # writeParentAndCommitCode(gitphpnet(psoup),gitphpnet(csoup),parentUrl,commitUrl,i)
-                        continue
-                    elif parentDomain == 'cgit.kde.org':
-                        # writeParentAndCommitCode(cgitkdeorg(parentUrl),cgitkdeorg(commitUrl),parentUrl,commitUrl,i)
-                        continue
-                    elif parentDomain == 'git.ganeti.org':
-                        # writeParentAndCommitCode(gitganetiorg(psoup),gitganetiorg(csoup),parentUrl,commitUrl,i)
-                        continue
-                    elif parentDomain == 'git.busybox.net':
-                        # writeParentAndCommitCode(gitbusyboxnet(parentUrl),gitbusyboxnet(commitUrl),parentUrl,commitUrl,i)
-                        continue
-                    elif parentDomain == 'git.tt-rss.org':
-                        # writeParentAndCommitCode(gitttrssorg(parentUrl),gitttrssorg(commitUrl),parentUrl,commitUrl,i)
-                        continue
-                    elif parentDomain == 'git.openssl.org':
-                        writeParentAndCommitCode(gitopensslorg(psoup),gitopensslorg(csoup),parentUrl,commitUrl,i)
-                        continue
-                    else:
-                        print(i + 2, parentDomain)
-                        break
+                if parentDomain == 'git.savannah.gnu.org':
+                    # writeParentAndCommitCode(gitsavannahgnuorgCode(psoup),gitsavannahgnuorgCode(csoup),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'git.samba.org':
+                    # writeParentAndCommitCode(gitsambaorg(psoup),gitsambaorg(csoup),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'git.php.net':
+                    # writeParentAndCommitCode(gitphpnet(psoup),gitphpnet(csoup),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'cgit.kde.org':
+                    # writeParentAndCommitCode(cgitkdeorg(parentUrl),cgitkdeorg(commitUrl),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'git.ganeti.org':
+                    # writeParentAndCommitCode(gitganetiorg(psoup),gitganetiorg(csoup),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'git.busybox.net':
+                    # writeParentAndCommitCode(gitbusyboxnet(parentUrl),gitbusyboxnet(commitUrl),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'git.tt-rss.org':
+                    # writeParentAndCommitCode(gitttrssorg(parentUrl),gitttrssorg(commitUrl),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'git.openssl.org':
+                    # writeParentAndCommitCode(gitopensslorg(psoup),gitopensslorg(csoup),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'git.kernel.org':
+                    # writeParentAndCommitCode(gitkernelorg(psoup),gitkernelorg(csoup),parentUrl,commitUrl,i)
+                    continue
+                else:
+                    print(i + 2, parentDomain)
+                    break
 
-    print(testedDomains)
+    # print(testedDomains)

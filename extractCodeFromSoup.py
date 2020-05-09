@@ -40,6 +40,8 @@ def gitganetiorg(sp):
                 txt = span.find(text = True, recursive = False)
                 if txt is not None:
                     rtn += txt + "\n"
+                else:
+                    rtn += "\n"
     return(rtn)
 
 def gitbusyboxnet(url):
@@ -60,4 +62,15 @@ def gitopensslorg(sp):
         for pre in pres:
             txt = pre.find(text = True, recursive = False)
             rtn += txt + "\n"
+    return(rtn)
+
+def gitkernelorg(sp):
+    rtn = ""
+    outerDiv = sp.findAll("div", {"class": "highlight"})
+    for div in outerDiv:
+        txt = div.text
+        if txt is not None:
+            rtn += txt + "\n"
+        else:
+            rtn += "\n"
     return(rtn)
