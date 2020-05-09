@@ -155,4 +155,12 @@ def gitpostgresql(url):
     req = requests.get(urlnew)
     return(req.text)
 
-def ():
+def githylafaxorg(url):
+    urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)
+
+def gitlinuxnfsorg(url):
+    urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)
