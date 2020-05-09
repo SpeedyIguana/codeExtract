@@ -70,8 +70,11 @@ if __name__ == '__main__':
                     elif parentDomain == 'git.busybox.net':
                         # writeParentAndCommitCode(gitbusyboxnet(parentUrl),gitbusyboxnet(commitUrl),parentUrl,commitUrl,i)
                         continue
+                    elif parentDomain == 'git.tt-rss.org':
+                        # writeParentAndCommitCode(gitttrssorg(parentUrl),gitttrssorg(commitUrl),parentUrl,commitUrl,i)
+                        continue
                     else:
-                        print(i + 2)
+                        print(i + 2, parentDomain)
                         break
 
     print(testedDomains)

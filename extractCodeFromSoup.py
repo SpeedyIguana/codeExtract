@@ -46,3 +46,8 @@ def gitbusyboxnet(url):
     urlnew = url.replace('tree', 'plain')
     req = requests.get(urlnew)
     return(req.text)
+
+def gitttrssorg(url):
+    urlnew = url.replace('src', 'raw')
+    req = requests.get(urlnew)
+    return(req.text)
