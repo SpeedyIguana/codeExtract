@@ -33,7 +33,7 @@ def writeParentAndCommitCode(parentcode, commitcode, parenturl, commiturl, row):
 
 if __name__ == '__main__':
     # for i in range(data.shape[0]):
-    for i in range(87, data.shape[0]):
+    for i in range(95, data.shape[0]):
         parentUrl = data.iloc[i, 22]
         commitUrl = data.iloc[i, 23]
         if not pd.isnull(parentUrl) and not pd.isnull(commitUrl):
@@ -96,6 +96,9 @@ if __name__ == '__main__':
                     continue
                 elif parentDomain == 'git.shibboleth.net':
                     # writeParentAndCommitCode(gitshibbolethnet(parentUrl),gitshibbolethnet(commitUrl),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'git.pengutronix.de':
+                    # writeParentAndCommitCode(gitpengutronixde(parentUrl),gitpengutronixde(commitUrl),parentUrl,commitUrl,i)
                     continue
                 else:
                     print(i + 2, parentDomain)
