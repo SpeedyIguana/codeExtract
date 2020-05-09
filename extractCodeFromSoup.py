@@ -134,4 +134,8 @@ def gitlinuxtvorg(url):
     urlnew = url.replace('tree', 'plain')
     req = requests.get(urlnew)
     return(req.text)
-    
+
+def gitmusllibcorg(url):
+    urlnew = url.replace('tree', 'plain')
+    req = requests.get(urlnew)
+    return(req.text)

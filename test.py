@@ -33,7 +33,7 @@ def writeParentAndCommitCode(parentcode, commitcode, parenturl, commiturl, row):
 
 if __name__ == '__main__':
     # for i in range(data.shape[0]):
-    for i in range(135, data.shape[0]):
+    for i in range(145, data.shape[0]):
         parentUrl = data.iloc[i, 22]
         commitUrl = data.iloc[i, 23]
         if not pd.isnull(parentUrl) and not pd.isnull(commitUrl):
@@ -108,6 +108,9 @@ if __name__ == '__main__':
                     continue
                 elif parentDomain == 'git.linuxtv.org':
                     # writeParentAndCommitCode(gitlinuxtvorg(parentUrl),gitlinuxtvorg(commitUrl),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'git.musl-libc.org':
+                    # writeParentAndCommitCode(gitmusllibcorg(parentUrl),gitmusllibcorg(commitUrl),parentUrl,commitUrl,i)
                     continue
                 else:
                     print(i + 2, parentDomain)
