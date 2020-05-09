@@ -1,10 +1,14 @@
 from bs4 import BeautifulSoup
 import requests
 
-def gitsavannahgnuorgCode(sp):
-    return(sp.code.text)
+def gitsavannahgnuorgCode(url):
+    urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)
 
-def gitsambaorg(sp):
+def gitsambaorg(url):
+    req = requests.get(url)
+    sp = BeautifulSoup(req.text, 'html.parser')
     rtn = ""
     outerDiv = sp.findAll("div", {"class": "page_body"})
     for div in outerDiv:
@@ -14,7 +18,9 @@ def gitsambaorg(sp):
             rtn += txt + "\n"
     return(rtn)
 
-def gitphpnet(sp):
+def gitphpnet(url):
+    req = requests.get(url)
+    sp = BeautifulSoup(req.text, 'html.parser')
     rtn = ""
     outerDiv = sp.findAll("div", {"class": "page_body"})
     for div in outerDiv:
@@ -29,7 +35,9 @@ def cgitkdeorg(url):
     req = requests.get(urlnew)
     return(req.text)
 
-def gitganetiorg(sp):
+def gitganetiorg(url):
+    req = requests.get(url)
+    sp = BeautifulSoup(req.text, 'html.parser')
     rtn = ""
     outerDiv = sp.findAll("div", {"class": "page_body"})
     for div in outerDiv:
@@ -54,7 +62,9 @@ def gitttrssorg(url):
     req = requests.get(urlnew)
     return(req.text)
 
-def gitopensslorg(sp):
+def gitopensslorg(url):
+    req = requests.get(url)
+    sp = BeautifulSoup(req.text, 'html.parser')
     rtn = ""
     outerDiv = sp.findAll("div", {"class": "page_body"})
     for div in outerDiv:
@@ -64,7 +74,9 @@ def gitopensslorg(sp):
             rtn += txt + "\n"
     return(rtn)
 
-def gitkernelorg(sp):
+def gitkernelorg(url):
+    req = requests.get(url)
+    sp = BeautifulSoup(req.text, 'html.parser')
     rtn = ""
     outerDiv = sp.findAll("div", {"class": "highlight"})
     for div in outerDiv:
@@ -80,7 +92,9 @@ def gitghostscriptcom(url):
     req = requests.get(urlnew)
     return(req.text)
 
-def gitmoodleorg(sp):
+def gitmoodleorg(url):
+    req = requests.get(url)
+    sp = BeautifulSoup(req.text, 'html.parser')
     rtn = ""
     outerDiv = sp.findAll("div", {"class": "page_body"})
     for div in outerDiv:
@@ -95,7 +109,9 @@ def gitspipnet(url):
     req = requests.get(urlnew)
     return(req.text)
 
-def githaproxyorg(sp):
+def githaproxyorg(url):
+    req = requests.get(url)
+    sp = BeautifulSoup(req.text, 'html.parser')
     rtn = ""
     outerDiv = sp.findAll("div", {"class": "page_body"})
     for div in outerDiv:
@@ -252,5 +268,15 @@ def gitlaunchpadnet(url):
 
 def gitjetbrainsorg(url):
     urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)
+
+def gitwpitchounenet(url):
+    urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)
+
+def gitenlightenmentorg(url): 
+    urlnew = url.replace('tree', 'plain')
     req = requests.get(urlnew)
     return(req.text)
