@@ -60,8 +60,8 @@ functionCalls = {
 }
 
 if __name__ == '__main__':
-    # for i in range(num_rows):
-    for i in range(0, 10):
+    for i in range(num_rows):
+    # for i in range(0, 10):
         parentUrl = data.iloc[i, 22]
         commitUrl = data.iloc[i, 23]
         if not pd.isnull(parentUrl) and not pd.isnull(commitUrl):
