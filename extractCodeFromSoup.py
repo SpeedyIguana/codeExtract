@@ -139,3 +139,8 @@ def gitmusllibcorg(url):
     urlnew = url.replace('tree', 'plain')
     req = requests.get(urlnew)
     return(req.text)
+
+def gitinfradeadorg(url):
+    urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)
