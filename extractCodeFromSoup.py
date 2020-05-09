@@ -184,3 +184,73 @@ def gitdelugetorrentorg(url):
     urlnew = url.replace('tree', 'plain')
     req = requests.get(urlnew)
     return(req.text)
+
+def gitlxdeorg(url):
+    urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)
+
+def htcondorgitcswiscedu(url):
+    urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)
+
+def gitquasselircorg(url):
+    urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)
+
+def gitlibavorg(url):
+    urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)
+
+def gittartarusorg(url):
+    urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)
+
+def gitstrongswanorg(url):
+    urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)
+
+def gitopenafsorg(url):
+    urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)
+
+def giteximorg(url):
+    urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)
+
+def gitlysatorliuse(url):
+    urlnew = url.replace('blob', 'raw')
+    req = requests.get(urlnew)
+    return(req.text)
+
+def gitlibsshorg(url):
+    urlnew = url.replace('tree', 'plain')
+    req = requests.get(urlnew)
+    return(req.text)
+
+def giteyrieorg(url):
+    urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)
+
+def gittukaaniorg(url):
+    urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)
+
+def gitlaunchpadnet(url):
+    urlnew = url.replace('tree', 'plain')
+    req = requests.get(urlnew)
+    return(req.text)
+
+def gitjetbrainsorg(url):
+    urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)

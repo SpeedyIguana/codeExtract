@@ -33,7 +33,7 @@ def writeParentAndCommitCode(parentcode, commitcode, parenturl, commiturl, row):
 
 if __name__ == '__main__':
     # for i in range(data.shape[0]):
-    for i in range(435, data.shape[0]):
+    for i in range(1260, data.shape[0]):
         parentUrl = data.iloc[i, 22]
         commitUrl = data.iloc[i, 23]
         if not pd.isnull(parentUrl) and not pd.isnull(commitUrl):
@@ -41,9 +41,7 @@ if __name__ == '__main__':
             cres = get_tld(commitUrl, as_object=True)
             parentDomain = pres.parsed_url.netloc
             commitDomain = cres.parsed_url.netloc
-            # if parentDomain not in testedDomains and commitDomain not in testedDomains:
-            # testedDomains.append(parentDomain)
-            # continue testing
+            
             parentReq = requests.get(parentUrl)
             commitReq = requests.get(commitUrl)
             if parentReq.ok and commitReq.ok:
@@ -134,10 +132,52 @@ if __name__ == '__main__':
                     # writeParentAndCommitCode(gitaltlinuxorg(parentUrl),gitaltlinuxorg(commitUrl),parentUrl,commitUrl,i)
                     continue
                 elif parentDomain == 'git.gnupg.org':
-                    writeParentAndCommitCode(gitgnupgorg(parentUrl),gitgnupgorg(commitUrl),parentUrl,commitUrl,i)
+                    # writeParentAndCommitCode(gitgnupgorg(parentUrl),gitgnupgorg(commitUrl),parentUrl,commitUrl,i)
                     continue
                 elif parentDomain == 'git.deluge-torrent.org':
                     # writeParentAndCommitCode(gitdelugetorrentorg(parentUrl),gitdelugetorrentorg(commitUrl),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'git.lxde.org':
+                    # writeParentAndCommitCode(gitlxdeorg(parentUrl),gitlxdeorg(commitUrl),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'htcondor-git.cs.wisc.edu':
+                    # writeParentAndCommitCode(htcondorgitcswiscedu(parentUrl),htcondorgitcswiscedu(commitUrl),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'git.quassel-irc.org':
+                    # writeParentAndCommitCode(gitquasselircorg(parentUrl),gitquasselircorg(commitUrl),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'git.libav.org':
+                    # writeParentAndCommitCode(gitlibavorg(parentUrl),gitlibavorg(commitUrl),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'git.tartarus.org':
+                    # writeParentAndCommitCode(gittartarusorg(parentUrl),gittartarusorg(commitUrl),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'git.strongswan.org':
+                    # writeParentAndCommitCode(gitstrongswanorg(parentUrl),gitstrongswanorg(commitUrl),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'git.openafs.org':
+                    # writeParentAndCommitCode(gitopenafsorg(parentUrl),gitopenafsorg(commitUrl),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'git.exim.org':
+                    # writeParentAndCommitCode(giteximorg(parentUrl),giteximorg(commitUrl),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'git.lysator.liu.se':
+                    # writeParentAndCommitCode(gitlysatorliuse(parentUrl),gitlysatorliuse(commitUrl),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'git.libssh.org':
+                    # writeParentAndCommitCode(gitlibsshorg(parentUrl),gitlibsshorg(commitUrl),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'git.eyrie.org':
+                    # writeParentAndCommitCode(giteyrieorg(parentUrl),giteyrieorg(commitUrl),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'git.tukaani.org':
+                    # writeParentAndCommitCode(gittukaaniorg(parentUrl),gittukaaniorg(commitUrl),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'git.launchpad.net':
+                    # writeParentAndCommitCode(gitlaunchpadnet(parentUrl),gitlaunchpadnet(commitUrl),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'git.jetbrains.org':
+                    # writeParentAndCommitCode(gitjetbrainsorg(parentUrl),gitjetbrainsorg(commitUrl),parentUrl,commitUrl,i)
                     continue
                 else:
                     print(i + 2, parentDomain)
