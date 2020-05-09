@@ -79,3 +79,13 @@ def gitghostscriptcom(url):
     urlnew = url.replace('blob', 'blob_plain')
     req = requests.get(urlnew)
     return(req.text)
+
+def gitmoodleorg(sp):
+    rtn = ""
+    outerDiv = sp.findAll("div", {"class": "page_body"})
+    for div in outerDiv:
+        pres = div.findAll("div", {"class": "pre"})
+        for pre in pres:
+            txt = pre.find(text = True, recursive = False)
+            rtn += txt + "\n"
+    return(rtn)
