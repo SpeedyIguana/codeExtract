@@ -164,3 +164,8 @@ def gitlinuxnfsorg(url):
     urlnew = url.replace('blob', 'blob_plain')
     req = requests.get(urlnew)
     return(req.text)
+
+def gitlinaroorg(url):
+    urlnew = url.replace('tree', 'plain')
+    req = requests.get(urlnew)
+    return(req.text)
