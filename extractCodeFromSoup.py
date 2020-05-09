@@ -180,3 +180,7 @@ def gitgnupgorg(url):
     req = requests.get(urlnew)
     return(req.text)
 
+def gitdelugetorrentorg(url):
+    urlnew = url.replace('tree', 'plain')
+    req = requests.get(urlnew)
+    return(req.text)
