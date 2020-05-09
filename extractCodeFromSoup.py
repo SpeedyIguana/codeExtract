@@ -174,3 +174,9 @@ def gitaltlinuxorg(url):
     urlnew = url.replace('blob', 'blob_plain')
     req = requests.get(urlnew)
     return(req.text)
+
+def gitgnupgorg(url):
+    urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)
+
