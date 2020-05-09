@@ -89,3 +89,9 @@ def gitmoodleorg(sp):
             txt = pre.find(text = True, recursive = False)
             rtn += txt + "\n"
     return(rtn)
+
+def gitspipnet(url):
+    urlnew = url.replace('src', 'raw')
+    req = requests.get(urlnew)
+    return(req.text)
+

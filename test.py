@@ -33,7 +33,7 @@ def writeParentAndCommitCode(parentcode, commitcode, parenturl, commiturl, row):
 
 if __name__ == '__main__':
     # for i in range(data.shape[0]):
-    for i in range(65, data.shape[0]):
+    for i in range(75, data.shape[0]):
         parentUrl = data.iloc[i, 22]
         commitUrl = data.iloc[i, 23]
         if not pd.isnull(parentUrl) and not pd.isnull(commitUrl):
@@ -84,6 +84,9 @@ if __name__ == '__main__':
                     continue
                 elif parentDomain == 'git.moodle.org':
                     # writeParentAndCommitCode(gitmoodleorg(psoup),gitmoodleorg(csoup),parentUrl,commitUrl,i)
+                    continue
+                elif parentDomain == 'git.spip.net':
+                    # writeParentAndCommitCode(gitspipnet(parentUrl),gitspipnet(commitUrl),parentUrl,commitUrl,i)
                     continue
                 else:
                     print(i + 2, parentDomain)
