@@ -74,3 +74,8 @@ def gitkernelorg(sp):
         else:
             rtn += "\n"
     return(rtn)
+
+def gitghostscriptcom(url):
+    urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)
