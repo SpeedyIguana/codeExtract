@@ -1,0 +1,7 @@
+{
+    "csvFrom": "x.csv",
+    "csvTo": "x.csv",
+    "columnNameTo": "codeParent",
+    "fileFrom": "x.txt",
+    "rowToInserInto": 1
+}
