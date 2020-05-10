@@ -11,5 +11,6 @@ with open(settings["fileFrom"], 'r') as infile:
 
 if __name__ == "__main__":
     data.iloc[int(settings["rowToInserInto"]), data.columns.get_loc(settings["columnNameTo"])] = txt
-    print(data.iloc[int(settings["rowToInserInto"]), data.columns.get_loc(settings["columnNameTo"])])
+    # print(data.iloc[int(settings["rowToInserInto"]), data.columns.get_loc(settings["columnNameTo"])])
+    print(df.loc[[settings["rowToInserInto"]]])
     data.to_csv(settings["csvTo"], index=False)
