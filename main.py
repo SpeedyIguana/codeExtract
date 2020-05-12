@@ -4,60 +4,13 @@ from tld import get_tld
 import requests
 from bs4 import BeautifulSoup
 from extractCodeFromUrl import *
+from functionCalls import *
 
 data = pd.read_csv("tt - tt.csv")
 
 num_rows = data.shape[0]
 
 # print(data.columns)
-
-functionCalls = {
-    'git.savannah.gnu.org': gitsavannahgnuorgCode,
-    'git.samba.org': gitsambaorg,
-    'git.php.net': gitphpnet,
-    'cgit.kde.org': cgitkdeorg,
-    'git.ganeti.org': gitganetiorg,
-    'git.busybox.net': gitbusyboxnet,
-    'git.tt-rss.org': gitttrssorg,
-    'git.openssl.org': gitopensslorg,
-    'git.kernel.org': gitkernelorg,
-    'git.ghostscript.com': gitghostscriptcom,
-    'git.moodle.org': gitmoodleorg,
-    'git.spip.net': gitspipnet,
-    'git.haproxy.org': githaproxyorg,
-    'cgit.freedesktop.org': cgitfreedesktoporg,
-    'git.shibboleth.net': gitshibbolethnet,
-    'git.pengutronix.de': gitpengutronixde,
-    'git.netfilter.org': gitnetfilterorg,
-    'git.qemu.org': gitqemuorg,
-    'git.linuxtv.org': gitlinuxtvorg,
-    'git.musl-libc.org': gitmusllibcorg,
-    'git.infradead.org': gitinfradeadorg,
-    'anongit.mindrot.org': anongitmindrotorg,
-    'git.postgresql.org': gitpostgresql,
-    'git.hylafax.org': githylafaxorg,
-    'git.linux-nfs.org': gitlinuxnfsorg,
-    'git.linaro.org': gitlinaroorg,
-    'git.altlinux.org': gitaltlinuxorg,
-    'git.gnupg.org': gitgnupgorg,
-    'git.deluge-torrent.org': gitdelugetorrentorg,
-    'git.lxde.org': gitlxdeorg,
-    'htcondor-git.cs.wisc.edu': htcondorgitcswiscedu,
-    'git.quassel-irc.org': gitquasselircorg,
-    'git.libav.org': gitlibavorg,
-    'git.tartarus.org': gittartarusorg,
-    'git.strongswan.org': gitstrongswanorg,
-    'git.openafs.org': gitopenafsorg,
-    'git.exim.org': giteximorg,
-    'git.lysator.liu.se': gitlysatorliuse,
-    'git.libssh.org': gitlibsshorg,
-    'git.eyrie.org': giteyrieorg,
-    'git.tukaani.org': gittukaaniorg,
-    'git.launchpad.net': gitlaunchpadnet,
-    'git.jetbrains.org': gitjetbrainsorg,
-    'git.wpitchoune.net': gitwpitchounenet,
-    'git.enlightenment.org': gitenlightenmentorg
-}
 
 if __name__ == '__main__':
     for i in range(num_rows):
