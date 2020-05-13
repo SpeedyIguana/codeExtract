@@ -3,7 +3,6 @@ import sys
 import pandas as pd
 from tld import get_tld
 import requests
-from bs4 import BeautifulSoup
 from extractCodeFromUrl import *
 from functionCalls import *
 
