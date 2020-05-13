@@ -1,4 +1,5 @@
 import os
+import sys
 import pandas as pd
 from tld import get_tld
 import requests
@@ -12,11 +13,15 @@ num_rows = data.shape[0]
 
 # print(data.columns)
 
+if len(sys.argv) > 1:
+    iend = int(sys.argv[1])
+else:
+    iend = num_rows
+
 if __name__ == '__main__':
-    for i in range(num_rows):
-    # for i in range(0, 10):
-        parentUrl = data.iloc[i, 22]
-        commitUrl = data.iloc[i, 23]
+    for i in range(iend):
+        parentUrl = data.iloc[i, data.columns.get_loc('parentURL')]
+        commitUrl = data.iloc[i, data.columns.get_loc('commitURL')]
         if not pd.isnull(parentUrl) and not pd.isnull(commitUrl):
             pres = get_tld(parentUrl, as_object=True)
             cres = get_tld(commitUrl, as_object=True)
