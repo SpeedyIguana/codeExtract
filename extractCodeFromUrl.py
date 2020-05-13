@@ -1,34 +1,22 @@
-from bs4 import BeautifulSoup
 import requests
 
 def gitsavannahgnuorgCode(url):
-    urlnew = url.replace('blob', 'blob_plain')
+    if 'blob' in url:
+        urlnew = url.replace('blob', 'blob_plain')
+    elif 'tree' in url:
+        urlnew = url.replace('tree','plain')
     req = requests.get(urlnew)
     return(req.text)
 
 def gitsambaorg(url):
-    req = requests.get(url)
-    sp = BeautifulSoup(req.text, 'html.parser')
-    rtn = ""
-    outerDiv = sp.findAll("div", {"class": "page_body"})
-    for div in outerDiv:
-        pres = div.findAll("div", {"class": "pre"})
-        for pre in pres:
-            txt = pre.find(text = True, recursive = False)
-            rtn += txt + "\n"
-    return(rtn)
+    urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)
 
 def gitphpnet(url):
-    req = requests.get(url)
-    sp = BeautifulSoup(req.text, 'html.parser')
-    rtn = ""
-    outerDiv = sp.findAll("div", {"class": "page_body"})
-    for div in outerDiv:
-        pres = div.findAll("div", {"class": "pre"})
-        for pre in pres:
-            txt = pre.find(text = True, recursive = False)
-            rtn += txt + "\n"
-    return(rtn)
+    urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)
 
 def cgitkdeorg(url):
     urlnew = url.replace('tree', 'plain')
@@ -36,21 +24,9 @@ def cgitkdeorg(url):
     return(req.text)
 
 def gitganetiorg(url):
-    req = requests.get(url)
-    sp = BeautifulSoup(req.text, 'html.parser')
-    rtn = ""
-    outerDiv = sp.findAll("div", {"class": "page_body"})
-    for div in outerDiv:
-        pres = div.findAll("div", {"class": "pre"})
-        for pre in pres:
-            spans = pre.findAll("span")
-            for span in spans:
-                txt = span.find(text = True, recursive = False)
-                if txt is not None:
-                    rtn += txt + "\n"
-                else:
-                    rtn += "\n"
-    return(rtn)
+    urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)
 
 def gitbusyboxnet(url):
     urlnew = url.replace('tree', 'plain')
@@ -63,29 +39,14 @@ def gitttrssorg(url):
     return(req.text)
 
 def gitopensslorg(url):
-    req = requests.get(url)
-    sp = BeautifulSoup(req.text, 'html.parser')
-    rtn = ""
-    outerDiv = sp.findAll("div", {"class": "page_body"})
-    for div in outerDiv:
-        pres = div.findAll("div", {"class": "pre"})
-        for pre in pres:
-            txt = pre.find(text = True, recursive = False)
-            rtn += txt + "\n"
-    return(rtn)
+    urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)
 
 def gitkernelorg(url):
-    req = requests.get(url)
-    sp = BeautifulSoup(req.text, 'html.parser')
-    rtn = ""
-    outerDiv = sp.findAll("div", {"class": "highlight"})
-    for div in outerDiv:
-        txt = div.text
-        if txt is not None:
-            rtn += txt + "\n"
-        else:
-            rtn += "\n"
-    return(rtn)
+    urlnew = url.replace('tree', 'plain')
+    req = requests.get(urlnew)
+    return(req.text)
 
 def gitghostscriptcom(url):
     urlnew = url.replace('blob', 'blob_plain')
@@ -93,16 +54,9 @@ def gitghostscriptcom(url):
     return(req.text)
 
 def gitmoodleorg(url):
-    req = requests.get(url)
-    sp = BeautifulSoup(req.text, 'html.parser')
-    rtn = ""
-    outerDiv = sp.findAll("div", {"class": "page_body"})
-    for div in outerDiv:
-        pres = div.findAll("div", {"class": "pre"})
-        for pre in pres:
-            txt = pre.find(text = True, recursive = False)
-            rtn += txt + "\n"
-    return(rtn)
+    urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)
 
 def gitspipnet(url):
     urlnew = url.replace('src', 'raw')
@@ -110,16 +64,9 @@ def gitspipnet(url):
     return(req.text)
 
 def githaproxyorg(url):
-    req = requests.get(url)
-    sp = BeautifulSoup(req.text, 'html.parser')
-    rtn = ""
-    outerDiv = sp.findAll("div", {"class": "page_body"})
-    for div in outerDiv:
-        pres = div.findAll("div", {"class": "pre"})
-        for pre in pres:
-            txt = pre.find(text = True, recursive = False)
-            rtn += txt + "\n"
-    return(rtn)
+    urlnew = url.replace('blob', 'blob_plain')
+    req = requests.get(urlnew)
+    return(req.text)
 
 def cgitfreedesktoporg(url):
     urlnew = url.replace('tree', 'plain')
