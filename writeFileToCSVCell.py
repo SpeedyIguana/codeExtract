@@ -12,5 +12,9 @@ with open(settings["fileFrom"], 'r') as infile:
 if __name__ == "__main__":
     data.iloc[int(settings["rowToInserInto"]), data.columns.get_loc(settings["columnNameTo"])] = txt
     # print(data.iloc[int(settings["rowToInserInto"]), data.columns.get_loc(settings["columnNameTo"])])
-    print(df.loc[[settings["rowToInserInto"]]])
+    print(data.loc[[settings["rowToInserInto"]]])
+    print(data.iloc[int(settings["rowToInserInto"]), data.columns.get_loc(settings["columnNameTo"])])
     data.to_csv(settings["csvTo"], index=False)
+    print("actually saving and reopeneing file")
+    data2 = pd.read_csv(settings["csvTo"])
+    print(data2.iloc[int(settings["rowToInserInto"]), data.columns.get_loc(settings["columnNameTo"])])
